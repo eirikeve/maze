@@ -38,7 +38,7 @@ me@my-computer:~/Folder$ python maze.py 21 21 10
 
 Without random seed supplied:
 ```bash
-me@my-computer:~Folder$ python maze.py 21 31
+me@my-computer:~/Folder$ python maze.py 21 31
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
 []                  []      []  []              []      []  []
 []  []  [][][]  [][][][][]  []  []  []  []  []  []  [][][]  []
