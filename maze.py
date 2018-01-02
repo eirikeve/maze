@@ -8,8 +8,6 @@
 import random
 import sys
 
-random.seed(10)
-
 
 """
 Prints the maze elements
