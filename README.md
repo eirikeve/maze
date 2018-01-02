@@ -4,11 +4,13 @@ Can output to a command line interface, or can be included in other projects.
 Written in Python 3.
 
 # Usage
-If using directly from terminal, call: `python maze.py height width [random seed]`
+If using directly from terminal, call: `python maze.py height width [random seed]`  
+(random seed defaults to 0 if not supplied)
 
 Otherwise, use `getMaze(xlength, ylength, random_seed)`
 
 # Example input
+With random seed supplied:
 ```bash
 me@my-computer:~/Folder$ python maze.py 21 21 10
 [][][][][][][][][][][][][][][][][][][][][]
@@ -32,4 +34,30 @@ me@my-computer:~/Folder$ python maze.py 21 21 10
 []  []  [][][][][][][]  []  [][][]  []  []
 []  []      []          []      []  []  []
 [][][][][][][][][][][][][][][][][][][][][]
+```
+
+Without random seed supplied:
+```bash
+me@my-computer:~Folder$ python maze.py 21 31
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+[]                  []      []  []              []      []  []
+[]  []  [][][]  [][][][][]  []  []  []  []  []  []  [][][]  []
+[]  []      []      []              []  []  []      []  []  []
+[]  []  [][][]  []  []  [][][]  [][][][][]  [][][][][]  []  []
+[]  []      []  []          []      []  []          []      []
+[]  [][][][][][][][][]  []  [][][]  []  [][][][][]  []  [][][]
+[]                  []  []      []      []  []  []          []
+[]  []  []  [][][]  [][][][][]  [][][][][]  []  []  [][][]  []
+[]  []  []      []          []          []      []  []      []
+[]  [][][]  [][][][][]  []  [][][][][]  []  [][][][][][][][][]
+[]      []  []  []  []  []  []                  []  []      []
+[]  []  [][][]  []  [][][]  [][][][][]  []  [][][]  []  []  []
+[]  []                  []      []  []  []  []          []  []
+[][][]  []  []  []  [][][][][]  []  [][][]  [][][]  []  [][][]
+[]  []  []  []  []          []          []          []  []  []
+[]  []  [][][][][][][][][]  []  [][][]  [][][][][][][][][]  []
+[]              []  []      []      []                  []  []
+[][][]  [][][]  []  [][][][][]  []  []  [][][][][]  []  []  []
+[]          []          []      []  []          []  []      []
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
 ```
