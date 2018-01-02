@@ -4,7 +4,7 @@ Can output to a command line interface, or can be included in other projects.
 Written in Python 3.
 
 # Usage
-If using directly form a CLI, call: `python maze.py height width [random seed]`
+If using directly from terminal, call: `python maze.py height width [random seed]`
 
 Otherwise, use `getMaze(xlength, ylength, random_seed)`
 
