@@ -1,6 +1,6 @@
 # maze
-Maze generator using a randomized Prim's algorithm.
-Can output to a command line interface, or can be included in other projects.
+Maze generator using a randomized Prim's algorithm.  
+Can output to a command line interface, or can be included in other projects.  
 Written in Python 3.
 
 # Usage
