@@ -9,7 +9,8 @@ If using directly from terminal, call: `python maze.py height width [random seed
 
 Otherwise, use `getMaze(xlength, ylength, random_seed)`
 
-# Example input
+__Example input:__
+
 With random seed supplied:
 ```bash
 me@my-computer:~/Folder$ python maze.py 21 21 10
