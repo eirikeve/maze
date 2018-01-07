@@ -9,5 +9,5 @@ def check_positive(value):
     else:
         if value < 0:
             raise argparse.ArgumentTypeError("%s is not a positive int value" % value)
-    finally:
-        return value
+    
+    return value
