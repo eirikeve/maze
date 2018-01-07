@@ -7,7 +7,10 @@
 
 import random
 import sys
+import argparse
+import logging
 
+from utils import check_positive
 
 """
 Prints the maze elements
@@ -142,16 +145,64 @@ def getMaze(xlength, ylength, random_seed):
 
 # If running directly from CLI
 if __name__ == "__main__":
-    # Only width and height parameters
-    if 2 < len(sys.argv):
-        # Corresponds to x dimension
-        height = int(sys.argv[1])
-        # Corresponds to y dimension
-        width  = int(sys.argv[2])
-        # Seed for randomization
-        ran_seed = 0 if len(sys.argv) < 4 else sys.argv[3]
-        # Print to CLI
-        printFinishedMaze( getMaze(height, width, ran_seed) )
+
+    logger = logging.getLogger("maze")
+    logger.setLevel(logging.DEBUG)
+
+    # create file handler which logs even debug messages
+    fh = logging.FileHandler('debug_maze.log')
+    fh.setLevel(logging.DEBUG)
+    # create console handler with a higher log level
+    ch = logging.StreamHandler()
+    ch.setLevel(logging.INFO)
+    # create formatter and add it to the handlers
+    formatter = logging.Formatter('%(name)s - %(levelname)s - %(message)s')
+    ch.setFormatter(formatter)
+    fh.setFormatter(formatter)
+    # add the handlers to logger
+    logger.addHandler(ch)
+    logger.addHandler(fh)
+    
+    parser = argparse.ArgumentParser(add_help=True)
+
+    parser.add_argument("--height",
+                        dest="height",
+                        action="store",
+                        help="Height of maze",
+                        type=check_positive,
+                        required=True)
+    parser.add_argument("--width",
+                        dest="width",
+                        action="store",
+                        help="Width of maze",
+                        type=check_positive,
+                        required=True)
+
+    seed_group = parser.add_mutually_exclusive_group()
+    seed_group.add_argument("--seed",
+                        dest="seed",
+                        action="store",
+                        help="Which seed to use for generating maze",
+                        type=check_positive,
+                        required=False,
+                        default=0)
+    seed_group.add_argument("--random",
+                        dest="random_seed",
+                        action="store_true",
+                        help="Generate maze with random seed",
+                        required= False)
+    
+
+    args, args_left = parser.parse_known_args()
+
+    if args_left:
+        logger.warning("Unknown arguments left from parsing: %s" % " ".join(args_left))
+    
+    if args.random_seed:
+        seed = random.randint(0, sys.maxsize)
+        logger.info("Random seed for generation: %s" % seed)
     else:
-        print("Error! Call using: python maze.py height width [random seed]")
+        seed = args.seed
+    
+    printFinishedMaze(getMaze(args.height, args.width, seed))
 

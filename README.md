@@ -4,16 +4,17 @@ Can output to a command line interface, or can be included in other projects.
 Written in Python 3.
 
 # Usage
-If using directly from terminal, call: `python maze.py height width [random seed]`  
-(random seed defaults to 0 if not supplied)
+If using directly from terminal, call: `python maze.py [-h] --height HEIGHT --width WIDTH [--seed SEED | --random]`  
+Seed defaults to 0 if  `--seed` or `--random` not supplied.
+`--random` generates a maze with a random seed.
 
 Otherwise, use `getMaze(xlength, ylength, random_seed)`
 
 __Example input:__
 
-With random seed supplied:
+With seed supplied:
 ```bash
-me@my-computer:~/Folder$ python maze.py 21 21 10
+me@my-computer:~/Folder$ python maze.py --height 21 --width 21 --seed 10
 [][][][][][][][][][][][][][][][][][][][][]
 []      []      []          []  []  []  []
 []  [][][][][]  []  [][][][][]  []  []  []
@@ -37,9 +38,9 @@ me@my-computer:~/Folder$ python maze.py 21 21 10
 [][][][][][][][][][][][][][][][][][][][][]
 ```
 
-Without random seed supplied:
+Seed defaulted to 0:
 ```bash
-me@my-computer:~/Folder$ python maze.py 21 31
+me@my-computer:~/Folder$ python maze.py --height 21 --width 31
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
 []                  []      []  []              []      []  []
 []  []  [][][]  [][][][][]  []  []  []  []  []  []  [][][]  []
@@ -62,3 +63,31 @@ me@my-computer:~/Folder$ python maze.py 21 31
 []          []          []      []  []          []  []      []
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
 ```
+
+Random seed:
+```bash
+me@my-computer:~/Folder$ python maze.py --height 21 --width 21 --random
+maze - INFO - Random seed for generation: 6044846455320802939
+[][][][][][][][][][][][][][][][][][][][][]
+[]      []          []  []              []
+[]  [][][]  [][][][][]  []  [][][][][][][]
+[]      []              []          []  []
+[]  []  []  [][][]  [][][]  [][][][][]  []
+[]  []          []                      []
+[][][]  []  []  [][][]  [][][][][]  [][][]
+[]      []  []      []  []              []
+[]  [][][]  []  [][][][][][][][][]  [][][]
+[]      []  []                  []      []
+[]  [][][][][][][]  []  [][][]  []  []  []
+[]              []  []      []  []  []  []
+[]  []  []  []  [][][][][]  [][][][][]  []
+[]  []  []  []      []  []  []      []  []
+[]  []  [][][][][][][]  [][][][][]  [][][]
+[]  []                                  []
+[]  [][][]  []  []  [][][][][]  []  []  []
+[]  []      []  []      []      []  []  []
+[]  []  []  [][][]  []  [][][][][]  []  []
+[]  []  []  []      []          []  []  []
+[][][][][][][][][][][][][][][][][][][][][]
+```
+
